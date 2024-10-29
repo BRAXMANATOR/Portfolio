@@ -21,8 +21,30 @@ h1 {
 }
 
 .opcje label {
-    margin: 5px;
     font-size: 18px;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.woda {
+    color: blue;
+    text-decoration: underline;
+}
+
+.ziemia {
+    color: darkgoldenrod;
+    text-decoration: underline;
+}
+
+.ogien {
+    color: brown;
+    font-weight: bold;
+}
+
+.wiatr {
+    font-weight: bold;
+    color: red;
 }
 
 .zdjecie img {
