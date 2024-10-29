@@ -5,23 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morze</title>
     <link rel="stylesheet" href="css.css">
+    <style>
+        .opcje label {
+            font-size: 18px;
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .woda {
+            color: blue;
+            text-decoration: underline;
+        }
+        .ziemia {
+            color: darkgoldenrod;
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+        }
+        .ogien {
+            color: brown;
+            font-weight: bold;
+        }
+        .wiatr {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Wybierz żywioł</h1>
+    <h1>Galeria</h1>
 
     <div class="kontener">
         <div class="opcje">
-            <label>
+            <label class="woda">
                 <input type="radio" name="zywiol" onclick="pokazOpis('woda')"> Woda
             </label>
-            <label>
-                <input type="radio" name="zywiol" onclick="pokazOpis('ziemia')"> Ziemia
+            <label class="ziemia">
+                <input type="radio" name="zywiol" onclick="pokazOpis('ziemia')"> Piasek
             </label>
-            <label>
-                <input type="radio" name="zywiol" onclick="pokazOpis('ogien')"> Ogień
+            <label class="ogien">
+                <input type="radio" name="zywiol" onclick="pokazOpis('ogien')"> Budka z jedzeniem
             </label>
-            <label>
-                <input type="radio" name="zywiol" onclick="pokazOpis('wiatr')"> Wiatr
+            <label class="wiatr">
+                <input type="radio" name="zywiol" onclick="pokazOpis('wiatr')"> Uwaga: Tornado
             </label>
         </div>
 
@@ -33,6 +58,13 @@
     </div>
 
     <script>
+        function losowyKolor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
         function pokazOpis(zywiol) {
             const opisElement = document.getElementById('opis');
             const zdjecieElement = document.getElementById('zdjecie');
@@ -40,15 +72,19 @@
             if (zywiol === 'woda') {
                 opisElement.innerHTML = "Morze";
                 zdjecieElement.src = "woda.png";
+                document.querySelector('.woda').style.color = losowyKolor();
             } else if (zywiol === 'ziemia') {
                 opisElement.innerHTML = "Plaża";
                 zdjecieElement.src = "ziemia.png";
+                document.querySelector('.ziemia').style.color = losowyKolor();
             } else if (zywiol === 'ogien') {
                 opisElement.innerHTML = "Jedzenie";
                 zdjecieElement.src = "ogień.png";
+                document.querySelector('.ogien').style.color = losowyKolor();
             } else if (zywiol === 'wiatr') {
                 opisElement.innerHTML = "<span class='uwaga'>Uwaga: Tornado!</span>";
                 zdjecieElement.src = "wiatr.png";
+                document.querySelector('.wiatr').style.color = losowyKolor();
             }
         }
     </script>
