@@ -1,77 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria ze zdjęciami</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .thumbnail {
-            width: 150px;
-            cursor: pointer;
-            border: 2px solid #ccc;
-            transition: border-color 0.3s;
-        }
-        .thumbnail:hover {
-            border-color: #333;
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Morze</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    <h1>Wybierz żywioł</h1>
+    
+    <div class="kontener">
+        <div class="opcje">
+            <label>
+                <input type="radio" name="zywiol" onclick="pokazOpis('woda')"> Woda
+            </label>
+            <label>
+                <input type="radio" name="zywiol" onclick="pokazOpis('ziemia')"> Ziemia
+            </label>
+            <label>
+                <input type="radio" name="zywiol" onclick="pokazOpis('ogien')"> Ogień
+            </label>
+            <label>
+                <input type="radio" name="zywiol" onclick="pokazOpis('wiatr')"> Wiatr
+            </label>
+        </div>
+        
+        <div class="zdjecie">
+            <img id="zdjecie" src="woda.jpg" alt="Zdjęcie żywiołu">
+        </div>
+        
+        <div id="opis" class="opis">Morze</div>
+    </div>
 
-<div class="gallery">
-    <img src="thumbnail1.jpg" class="thumbnail" onclick="openLightbox(this)">
-    <img src="thumbnail2.jpg" class="thumbnail" onclick="openLightbox(this)">
-</div>
-
-<div class="lightbox" id="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightboxImg" src="">
-</div>
-
-<script>
-    function openLightbox(element) {
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightboxImg").src = element.src;
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").style.display = "none";
-    }
-</script>
-
+    <script>
+        function pokazOpis(zywiol) {
+            const opisElement = document.getElementById('opis');
+            const zdjecieElement = document.getElementById('zdjecie');
+            
+            if (zywiol === 'woda') {
+                opisElement.innerHTML = "Morze";
+                zdjecieElement.src = "woda.jpg";
+            } else if (zywiol === 'ziemia') {
+                opisElement.innerHTML = "Plaża";
+                zdjecieElement.src = "ziemia.jpg";
+            } else if (zywiol === 'ogien') {
+                opisElement.innerHTML = "Jedzenie";
+                zdjecieElement.src = "ogien.jpg";
+            } else if (zywiol === 'wiatr') {
+                opisElement.innerHTML = "<span class='uwaga'>Uwaga: Tornado!</span>";
+                zdjecieElement.src = "wiatr.jpg";
+            }
+        }
+    </script>
 </body>
 </html>
