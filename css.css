@@ -8,7 +8,48 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-        }
+        }body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.kontener {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.opcje label {
+    margin: 5px;
+    font-size: 18px;
+}
+
+.zdjecie img {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.opis {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.uwaga {
+    color: red;
+    font-weight: bold;
+}
+
         .thumbnail {
             width: 150px;
             cursor: pointer;
